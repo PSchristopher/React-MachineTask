@@ -1,0 +1,56 @@
+.card{
+    width: 250px;
+    /* #1a3867; */
+    box-shadow: none !important;
+}
+
+.card:hover .card-img{
+    filter: grayscale(0) !important;
+    border-radius: 0;
+    transition: .5s;
+}
+.text-field{
+    color: black;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+}
+.email{
+    color:darkgray;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+}
+
+.card-img{
+    border-radius: 100%;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    filter: grayscale(1) !important;
+    transition: .5s;
+}
+
+.css-zow5z4-MuiGrid-root{
+    justify-content: center;
+}
+
+.header-area{
+    display: flex;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.header-area button{
+    width: 200px;
+    background-color: black !important;
+    color: white !important;
+    border-radius: 8px;
+}
+
+.header-area p{
+    padding: 10px;
+    background-color: black !important;
+    color: white !important;
+}
