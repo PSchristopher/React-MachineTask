@@ -13,6 +13,10 @@ import { Grid } from "@mui/material";
 import { Container } from "@mui/system";
 
 import "./home.css";
+import * as React from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
+
 function Home() {
   const [users, setUsers] = useState<User[]>(() => {
     const data = localStorage.getItem("UserDetails");
@@ -65,7 +69,7 @@ function Home() {
       setUsers(filteredArray);
     }
   };
-  
+
   const refreashUser = async () => {
     let result = await getAllData();
     setUsers(result);
@@ -73,7 +77,16 @@ function Home() {
 
   return (
     <>
+
       <Container>
+        
+      {loading ? (
+          <Box className="loading" sx={{ display: "flex" }}>
+            <CircularProgress />
+          </Box>
+        ) : (
+          ""
+        )}
         <div className="header-area">
           <Button onClick={() => refreashUser()}>refresh</Button>
           <p>Total : {users.length}</p>
