@@ -17,6 +17,9 @@ import * as React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function Home() {
   const [users, setUsers] = useState<User[]>(() => {
     const data = localStorage.getItem("UserDetails");
@@ -45,7 +48,6 @@ function Home() {
       }
     } catch (error) {
       console.log(error);
-      // toast.error("Unexpected error")
     } finally {
       setLoading(false);
     }
@@ -67,6 +69,7 @@ function Home() {
       const localData = JSON.parse(dataa) as User[];
       let filteredArray = localData.filter((obj) => obj.email !== id);
       setUsers(filteredArray);
+      notify();
     }
   };
 
@@ -75,12 +78,12 @@ function Home() {
     setUsers(result);
   };
 
+  const notify = () => toast("Deleted Successfully!");
+
   return (
     <>
-
       <Container>
-        
-      {loading ? (
+        {loading ? (
           <Box className="loading" sx={{ display: "flex" }}>
             <CircularProgress />
           </Box>
@@ -132,6 +135,19 @@ function Home() {
           })}
         </Grid>
       </Container>
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }

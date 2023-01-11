@@ -33,6 +33,12 @@
 
 .css-zow5z4-MuiGrid-root{
     justify-content: center;
+    gap: 10px;
+}
+
+.css-zow5z4-MuiGrid-root>.MuiGrid-item{
+    padding: 20px 10px 0 !important;
+    border: 1px solid;
 }
 
 .header-area{
